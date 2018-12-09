@@ -12,4 +12,3 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('api/', include(router.urls)),
 ]
-

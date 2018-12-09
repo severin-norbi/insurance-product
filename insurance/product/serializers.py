@@ -13,7 +13,8 @@ class RiskTypeFieldSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = RiskTypeField
-        fields = ('id', 'title', 'description', 'field_type', 'required', 'options')
+        fields = ('id', 'title', 'description', 'field_type',
+                  'required', 'options')
 
 
 class RiskTypeSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,5 +23,3 @@ class RiskTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = RiskType
         fields = ('id', 'title', 'description', 'type_fields')
-
-

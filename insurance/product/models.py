@@ -25,6 +25,6 @@ class RiskTypeField(models.Model):
 
 class EnumOption(models.Model):
     enum_field = models.ForeignKey(RiskTypeField, on_delete=models.CASCADE,
-                                  related_name='options')
+                                   related_name='options')
     name = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
