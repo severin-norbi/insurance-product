@@ -4,14 +4,14 @@ from rest_framework.permissions import IsAuthenticated
 from .models import RiskType, RiskTypeField, EnumOption
 
 
-class EnumOptionSerializer(serializers.HyperlinkedModelSerializer):
+class EnumOptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnumOption
         fields = ('id', 'name', 'title', 'enum_field')
 
 
-class RiskTypeFieldSerializer(serializers.HyperlinkedModelSerializer):
-    options = EnumOptionSerializer(many=True)
+class RiskTypeFieldSerializer(serializers.ModelSerializer):
+    options = EnumOptionSerializer(many=True, read_only=True)
 
     class Meta:
         model = RiskTypeField
@@ -20,7 +20,7 @@ class RiskTypeFieldSerializer(serializers.HyperlinkedModelSerializer):
 
 
 
-class RiskTypeSerializer(serializers.HyperlinkedModelSerializer):
+class RiskTypeSerializer(serializers.ModelSerializer):
     type_fields = RiskTypeFieldSerializer(many=True, read_only=True)
 
     class Meta:
