@@ -6,6 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('risktype', views.RiskTypeViewSet)
 router.register('risktypefield', views.RiskTypeFieldViewSet)
+router.register('enumoption', views.EnumOptionViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),

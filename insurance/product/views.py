@@ -4,8 +4,8 @@ from django.urls import reverse
 from django.views import generic
 from rest_framework import viewsets
 
-from .models import RiskType, RiskTypeField
-from .serializers import RiskTypeSerializer, RiskTypeFieldSerializer
+from .models import RiskType, RiskTypeField, EnumOption
+from .serializers import RiskTypeSerializer, RiskTypeFieldSerializer, EnumOptionSerializer
 
 
 # TODO: Class based view
@@ -23,14 +23,23 @@ class RiskTypeDetailView(generic.DetailView):
 
 class RiskTypeViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows RiskType to be viewed or edited.
+    API endpoint that allows RiskTypes to be viewed or edited.
     """
     queryset = RiskType.objects.all()
     serializer_class = RiskTypeSerializer
 
+
 class RiskTypeFieldViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows RiskType to be viewed or edited.
+    API endpoint that allows RiskTypeFields to be viewed or edited.
     """
     queryset = RiskTypeField.objects.all()
     serializer_class = RiskTypeFieldSerializer
+
+
+class EnumOptionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EnumOptions to be viewed or edited.
+    """
+    queryset = EnumOption.objects.all()
+    serializer_class = EnumOptionSerializer

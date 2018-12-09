@@ -21,3 +21,10 @@ class RiskTypeField(models.Model):
     description = models.TextField()
     field_type = models.CharField(max_length=10, choices=FIELD_REGISTRY)
     required = models.BooleanField()
+
+
+class EnumOption(models.Model):
+    enum_field = models.ForeignKey(RiskTypeField, on_delete=models.CASCADE,
+                                  related_name='options')
+    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
