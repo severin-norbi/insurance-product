@@ -9,6 +9,6 @@ router.register('risktypefield', views.RiskTypeFieldViewSet)
 router.register('enumoption', views.EnumOptionViewSet)
 
 urlpatterns = [
-    path('', views.index, name='index'),
+#    path('', views.index, name='index'),
     path('api/', include(router.urls)),
 ]

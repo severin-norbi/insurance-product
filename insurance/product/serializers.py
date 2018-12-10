@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
 
 from .models import RiskType, RiskTypeField, EnumOption
 
@@ -17,7 +16,6 @@ class RiskTypeFieldSerializer(serializers.ModelSerializer):
         model = RiskTypeField
         fields = ('id', 'title', 'description', 'field_type',
                   'required', 'options', 'risk_type')
-
 
 
 class RiskTypeSerializer(serializers.ModelSerializer):
