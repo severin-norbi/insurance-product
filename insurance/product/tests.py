@@ -16,6 +16,7 @@ class ProductAPITests(APITestCase):
         self.client.login(username=self.username, password=self.password)
 
     def test_risk_type(self):
+        """A test to create/read/update/delete RiskTypes"""
         # Create
         data = {'title': 'Risk type 1',
                 'description': 'A risk type'}
@@ -51,7 +52,9 @@ class ProductAPITests(APITestCase):
         self.assertEqual(models.RiskType.objects.count(), 0)
 
     def test_risk_type_field(self):
-        # Set up a risk type
+        """A test to create/read/update/delete RiskTypeFields"""
+
+        # We must have a RiskType first
         data = {'title': 'Risk type 1',
                 'description': 'A risk type'}
         response = self.client.post('/api/risktype/', data)
@@ -94,7 +97,9 @@ class ProductAPITests(APITestCase):
         self.assertEqual(models.RiskTypeField.objects.count(), 0)
 
     def test_enum_option(self):
-        # Set up a risk type and an enum field
+        """A test to create/read/update/delete EnumOptions"""
+
+        # We must have a RiskType and RiskTypeField first
         data = {'title': 'Risk type 1',
                 'description': 'A risk type'}
         response = self.client.post('/api/risktype/', data)
@@ -140,6 +145,8 @@ class ProductAPITests(APITestCase):
         self.assertEqual(models.EnumOption.objects.count(), 0)
 
     def test_complex(self):
+        """Test that the Read of a RiskType includes all the data"""
+
         data = {'title': 'Risk type 1',
                 'description': 'A risk type'}
         response = self.client.post('/api/risktype/', data)
